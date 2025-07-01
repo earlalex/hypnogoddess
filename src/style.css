@@ -67,7 +67,7 @@ section {
 }
 
 .header-wrapper {
-    background-image: url('hero-bg.png');
+    background-image: url('../media/bkgds/hero-bg.png');
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
