@@ -334,10 +334,15 @@ details {
 
 .hero-text {
      max-width: 800px;
+     /* background-color: rgba(0, 0, 0, 0.8); */
+     padding: 3rem;
+     border-radius: 10px;
+     z-index: 999;
 }
 
 .hero h1 {
-    font-size: 4rem; 
+    font-size: 4rem;
+    margin-top: 0;
     margin-bottom: 0.5rem;
     color: var(--white); 
     text-shadow: 0 0 15px var(--purple-royal); 
@@ -363,16 +368,29 @@ details {
     margin-top: 2rem;
 }
 
-/* Hero Image - placeholder styling */
-.hero-image img {
-    display: none; 
-    max-width: 300px;
-    height: auto;
-    border-radius: 50%; 
-    border: 5px solid var(--pink); 
-    box-shadow: 0 0 20px var(--purple-royal); 
+/* Hero Image */
+.hero-image-container {
+    position: absolute;
+    bottom: -20%;
+    right: -20%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end; /* Aligns image to the right */
+    align-items: flex-end;   /* Aligns image to the bottom */
+    z-index: 0; /* Places it behind the hero-content (z-index: 1) */
+    pointer-events: none; /* Allows clicks to pass through the image container */
 }
 
+.hero-image-container img {
+    max-height: 80vh; /* Control the max height relative to the viewport */
+    width: auto;
+    max-width: 100%;   /* Control the max width */
+    object-fit: cover;
+    object-position: top right;
+    opacity: 0; /* Start transparent */
+    animation: slideInFade 1.5s 0.5s ease-out forwards; /* animation-name, duration, delay, timing-function, fill-mode */
+}
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -390,6 +408,17 @@ details {
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
+}
+
+@keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateX(-35%); /* Start 20% to the right */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(30%); /* End at its natural position */
+    }
 }
 
 
@@ -1070,5 +1099,17 @@ footer ul li {
     .mobile-nav-toggle[open] > .nav-links {
         flex-direction: column;
     }
+    .hero-image-container img {
+        max-width: 70%;
+        max-height: 65vh;
+    }
+    .hero-image-container {
+        right: -12%;
+    }
 
+}
+@media screen and (max-width: 600px) { 
+    .hero-image-container img {
+        display: none;
+    }
 }
