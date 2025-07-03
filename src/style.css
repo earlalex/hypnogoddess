@@ -562,8 +562,6 @@ details {
 
 
 /* Testimonials Section */
-.testimonials {
-}
 
 .testimonials::before {
      content: "";
@@ -592,15 +590,33 @@ details {
     border: 1px solid rgba(249, 181, 114, 0.2);
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: bottom;
+    justify-content: flex-end;
+    background-image: url('../media/hypnogoddess-logo.png'), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.testimonial-card.charlie-mac {
+    background-image: url('../media/charlie-mac-weight-loss.jpg'), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .testimonial-card p {
     font-size: 1.1rem;
     font-style: italic; 
     color: var(--white);
+    background-color: rgba(0, 0, 0, 0.5);
     margin-bottom: 1.5rem;
     position: relative;
     z-index: 1;
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 .testimonial-card h5 {
